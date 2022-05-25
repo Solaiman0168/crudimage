@@ -18,6 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('products', [App\Http\Controllers\productController::class, 'index'])->name('product.index');
+Route::get('create', [App\Http\Controllers\productController::class, 'create'])->name('product.create');
+Route::get('edit/product/{id}', [App\Http\Controllers\productController::class, 'edit']);
+Route::get('delete/product/{id}', [App\Http\Controllers\productController::class, 'delete']);
+Route::get('show/product/{id}', [App\Http\Controllers\productController::class, 'show']);
+
+Route::post('store', [App\Http\Controllers\productController::class, 'store'])->name('product.store');
+Route::post('update/product/{id}', [App\Http\Controllers\productController::class, 'update']);
 
 Auth::routes();
 
